@@ -34,6 +34,15 @@ jobs:
         with:
           gradle-version: '8.7'
 
+      - name: Configure JVM compatibility
+        run: |
+          cat >> extracted/app/build.gradle << 'EOF'
+
+          // Align Java and Kotlin JVM targets
+          android {
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
       - name: Build Ghostie APK
         working-directory: extracted
         run: gradle assembleDebug --stacktrace
