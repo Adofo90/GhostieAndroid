@@ -43,6 +43,10 @@ jobs:
               compileOptions {
                   sourceCompatibility = JavaVersion.VERSION_17
                   targetCompatibility = JavaVersion.VERSION_17
+              }
+          }
+          EOF
+
       - name: Build Ghostie APK
         working-directory: extracted
         run: gradle assembleDebug --stacktrace
