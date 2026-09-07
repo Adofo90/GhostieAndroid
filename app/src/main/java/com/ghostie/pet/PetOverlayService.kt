@@ -4,10 +4,13 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.TextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class PetOverlayService : Service() {
@@ -63,7 +66,7 @@ fun PetChatInput(onSendMessage: (String) -> Unit) {
         TextField(
             value = messageText,
             onValueChange = { messageText = it },
-            label = { androidx.compose.material3.Text("Message") },
+            label = { Text("Message") },
             maxLines = 1,
             modifier = androidx.compose.foundation.layout.Modifier.fillMaxWidth()
         )
